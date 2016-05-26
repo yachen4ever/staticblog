@@ -49,11 +49,27 @@ $str=<<<PAGESIGNAL
 				</div>
 			</div>
 			<div class="other_posts">
-				<a href=$contentpre class="pre">上一篇文章</a>
-				<a href=$contentnext class="next">下一篇文章</a>
+				<a href=$contentpre class="pre">上一篇文章：<br>$titlepre</a>
+				<a href=$contentnext class="next">下一篇文章：<br>$titlenext</a>
 			</div>
 			<div class="clear"></div>
 		</div>
+		<!-- 多说评论框 start -->
+			<div class="ds-thread" data-title=$pagetitle ></div>
+		<!-- 多说评论框 end -->
+		<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+		<script type="text/javascript">
+		var duoshuoQuery = {short_name:"yachen"};
+			(function() {
+				var ds = document.createElement('script');
+				ds.type = 'text/javascript';ds.async = true;
+				ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+				ds.charset = 'UTF-8';
+				(document.getElementsByTagName('head')[0] 
+				 || document.getElementsByTagName('body')[0]).appendChild(ds);
+			})();
+			</script>
+		<!-- 多说公共JS代码 end -->
 	</div>
     <script src="js/jquery-1.11.2.min.js"></script>
     <script src="js/bootstrap.min.js"></script>

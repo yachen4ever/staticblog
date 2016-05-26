@@ -70,16 +70,22 @@
 	
 	//根据按文章创建时间排序创建文章之间的先后关系
 	$content[0]['contentpre'] = '1.html';
+	$content[0]['titlepre'] = '已经是第一篇文章!';
 	$content[$cnt-1]['contentnext'] = (string)($cnt) . '.html';
+	$content[$cnt-1]['titlenext'] = '已经是最后一篇文章!';
 	if ($cnt != 1) {
 		$content[0]['contentnext'] = '2.html';
+		$content[0]['titlenext'] = $content[1]['pagetitle'];
 		$content[$cnt-1]['contentpre'] = (string)($cnt-1) . '.html';
-	}
-	
-	for ($i=1;$i<$cnt-1;$i++) {
-		$content[$i]['contentpre'] = (string)($i) . '.html';
-		$content[$i]['contentnext'] = (string)($i+2) . '.html';
-	}
+		$content[$cnt-1]['titlepre'] = $content[$cnt-2]['pagetitle'];
+		
+		for ($i=1;$i<$cnt-1;$i++) {
+			$content[$i]['contentpre'] = (string)($i) . '.html';
+			$content[$i]['titlepre'] = $content[$i-1]['pagetitle'];
+			$content[$i]['contentnext'] = (string)($i+2) . '.html';
+			$content[$i]['titlenext'] = $content[$i+1]['pagetitle'];
+		}
+	}	
 	
 	//循环生成每篇文章的html
 	for ($i=0;$i<$cnt;$i++) {
@@ -90,6 +96,10 @@
 		$postbody = $content[$i]['postbody'];
 		$contentpre = $content[$i]['contentpre'];
 		$contentnext = $content[$i]['contentnext'];
+		$titlepre = $content[$i]['titlepre'];
+		$titlenext = $content[$i]['titlenext'];
+		//$key = $i+1;
+		//$url = $i.'.html';
 		
 		//根据tags生成tag数组，为生成标签页面做准备
 		$thispagetagcnt = count($content[$i]['tagsarray']);
@@ -228,6 +238,8 @@
 	readMdFile('about',$about);
 	
 	$pagetitle = "关于";
+	//$key = 9998;
+	//$url = 'about.html';
 	$datetime = $about['datetime'];
 	$postbody = $about['postbody'];
 	require ('aboutlinkmodule.php');
@@ -240,6 +252,8 @@
 	readMdFile('links',$links);
 	
 	$pagetitle = "友情链接";
+	//$key = 9999;
+	//$url = 'links.html';
 	$datetime = $links['datetime'];
 	$postbody = $links['postbody'];
 	require ('aboutlinkmodule.php');
