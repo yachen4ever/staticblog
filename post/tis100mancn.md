@@ -1,6 +1,7 @@
 title: TIS-100用户手册中文版
 date: 2015-12-29 23:58:31
-tags: TIS-100
+tags: 
+-TIS-100
 categories: Game
 description: 最近在Steam上购买了TIS-100编程游戏，该游戏是一款使用汇编语言解决问题的高智商游戏。并附有一份14页的说明文档。我对该说明文档进行了完整翻译。
 ---
