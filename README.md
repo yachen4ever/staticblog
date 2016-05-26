@@ -14,3 +14,15 @@ You can change page modules on your own. Try change 'pagemodule.php','indexmodul
 ## About Author
 
 YaCHEN (http://xuchen.wang). A postgraduate CS student.
+
+## Updates
+
+Ver 1.2.1
+Consummated README.md
+
+Ver 1.2 
+Added Duoshuo. Change Your Duoshuo shortname in 'pagemodule.php' and 'aboutandlinksmodule.php' before deploying your websites.
+Pre and Next page's title now can be seen at the bottom of one blog page.
+
+Ver 1.1
+Added Highlight.js
