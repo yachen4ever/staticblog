@@ -1,0 +1,306 @@
+::selection {
+    background: #56B696;
+    color:white;
+}
+::-moz-selection {
+    background: #56B696;
+    color:white;
+}
+
+body {
+    line-height: 1.6;
+    font-family: "Microsoft YaHei", sans-serif;
+	background-color: #FAF0E6;
+}
+
+#header {
+      background: no-repeat center bottom;
+      background-size: cover;
+      background-image: url(banner.png);
+      height: 300px;
+}
+#header .header_wrapper {
+    padding-top: 80px;
+}
+#header .header_wrapper h1 {
+    padding: 0;
+    margin: 0;
+    font-size: 3em;
+    text-align: center;
+}
+#header .header_wrapper h1 a {
+    letter-spacing: -1px;
+    font-weight: normal;
+    text-shadow: 2px 2px #555;
+    color: #fff;
+    text-decoration: none;
+}
+#header .header_wrapper h1 a:hover {
+    text-decoration: none;
+    border-bottom: 1px solid #fff;
+}
+#header .header_wrapper .navfz {
+    list-style: none;
+    display: block;
+    text-align: center;
+    clear: both;
+    padding: 0;
+}
+#header .header_wrapper .navfz li {
+    margin-top:20px;
+    position: relative;
+    display: inline-block;
+    *display: inline;
+}
+#header .header_wrapper .navfz li a {
+    color: #fff;
+    font-size: 14px;
+    margin: 0 1em;
+    text-shadow: 1px 1px #333;
+}
+#header .header_wrapper .navfz li a:hover {
+    border-bottom-color: #fff;
+}
+
+#main {
+    margin-left:10%;
+    margin-right:10%;
+    margin-top:4%;
+    margin-bottom:2%;
+}
+
+.detail {
+    margin-bottom:2%;
+}
+
+.detail a {
+    color: #58B798;
+}
+
+.detail a:hover {
+    color: #6ABFA3;
+}
+
+.post {
+    border: solid 1px #DDD;
+}
+
+.archive {
+    border: solid 1px #DDD;
+    padding: 2% 3% 3% 3%;
+}
+
+.archive h3 {
+    text-align: center;
+}
+
+.list {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: solid 1px #DDD;
+}
+
+.list span{
+    float: right;
+}
+
+.list a {
+    font-size: 18px;
+    color: black;
+}
+
+.list a:hover {
+    color: #58B798;
+    text-decoration: none;
+}
+
+.content {
+    padding: 2% 2% 1% 2%;
+}
+
+.content h1.title {
+    font-size: 32px;
+    /*font-weight: bold;*/
+    margin-bottom:1%;
+    margin-top: 0;
+}
+
+.content h1.title a {
+    color: black;
+}
+
+.content h1.title a:hover {
+    color: #58B798;
+    text-decoration: none;
+}
+
+.content blockquote {
+    /*border: solid 1px #DDD;
+    border-left-width: 5px;*/
+    border-left-color: #AA6708;
+}
+
+.info {
+    margin-top:0;
+    margin-bottom:1%;
+    border-bottom: solid 1px #DDD;
+    padding-bottom:1%;
+}
+
+.info i {
+    margin-right:5px;
+}
+
+span.date {
+    margin-right:20px;
+}
+
+span.tags a {
+    margin-right:20px;
+}
+
+.post_body, .info {
+    font-size:15.5px;
+}
+
+.post_body blockquote {
+    font-size:15.5px;
+}
+
+/* 36 30 24 18 14 15.5 */
+
+.post_body h1, .post_body h2, .post_body h3, .post_body h4, .post_body h5, .post_body h6 {
+    font-weight:bold;
+}
+
+.post_body h1 {
+    font-size:30px;
+}
+
+.post_body h2 {
+    font-size:22px;
+}
+
+.post_body h3, .post_body h4, .post_body h5, .post_body h6 {
+    font-size:15.5px;
+}
+
+.disqus {
+    padding: 3%;
+    border: solid 1px #DDD;
+    clear: both;
+}
+
+.other_posts {
+    border-left: solid 1px #DDD;
+    border-right: solid 1px #DDD;
+}
+
+.other_posts a {
+    font-size:15.5px;
+    display: block;
+    width: 50%;
+    padding: 20px;
+}
+.clear {
+    clear: both;
+}
+.other_posts a:hover {
+    text-decoration: none;
+    background-color:#58B798;
+    color: white;
+}
+
+.other_posts a.pre {
+    text-align: left;
+    float: left;
+    padding-left: 30px;
+    border-right: solid 1px #DDD;
+}
+
+.other_posts a.next {
+    text-align: right;
+    float: right;
+    padding-right: 30px;
+    border-left: solid 1px #DDD;
+}
+
+.round {
+    -moz-border-radius: 100%;
+    -webkit-border-radius: 100%;
+    border-radius: 100%;
+    display: block;
+}
+
+
+.pager {
+    margin-left:10%;
+    margin-right:10%;
+    margin-bottom:5%;
+    position: relative;
+    height: 57px;
+}
+.pager a {
+    height: 57px;
+    width: 57px;
+    line-height: 57px;
+    color: #333;
+    background: #fff;
+    letter-spacing: 1px;
+    font-size: 14px;
+    text-decoration: none;
+    text-align: center;
+    border: 1px solid #d3d3d3;
+}
+.pager a:hover {
+    color: #fff;
+    background: #58b798;
+}
+.pager .next {
+    position: absolute;
+    right: 3%;
+}
+.pager .pre {
+    position: absolute;
+    left: 3%;
+}
+
+pre code {
+    font-family: Consolas, courier new;
+}
+
+/*
+目录功能
+2016-01-18 19:32:25
+*/
+#contents {
+    font-size: 15.5px;
+    background-color: #EEEEEE;
+    padding: 20px;
+    padding-right: 40px;
+    margin: 20px;
+    float: right;
+}
+
+#contents ol {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+#contents ol li.level-2 {
+    padding-left: 25px;
+}
+
+#contents ol li.level-3 {
+    padding-left: 50px;
+}
+
+/*
+修改一下pre的边框粗细。
+但是给img加阴影放到了contents.js里了，因为表情图片也加阴影的话有些难看。
+2016-3-21 21:24:07
+*/
+pre {
+    padding: 0px;
+}
