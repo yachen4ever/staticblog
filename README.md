@@ -17,6 +17,9 @@ YaCHEN (http://xuchen.wang). A postgraduate CS student.
 
 ## Updates
 
+Ver 1.2.3
+Add LICENSE
+
 Ver 1.2.1
 Consummated README.md
 
