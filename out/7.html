@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/agate.css">
+		<script src="js/highlight.pack.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
+        <title> 修改Maven本地依赖库的默认存放位置</title>
+	</head>
+	
+<body>
+	
+    <div id="header" class="header">
+        <div class="header_wrapper">
+          <h1 class="title"><a href="index.html">我的博客</a></h1>
+          <ul class="navfz">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="archive.html">归档</a></li>
+            <li><a href="tags/index.html">标签</a></li>
+            <!-- <li><a href="category">分类</a></li> -->
+            <li><a href="links.html">友链</a></li>
+            <li><a href="about.html">关于</a></li>
+          </ul>
+        </div>
+    </div>
+	
+	<div id="main">
+		<div class="detail">
+            <div class="post">
+                <div class="content">
+                    <h1 class="title"> 修改Maven本地依赖库的默认存放位置</h1>
+					<div class="info">
+						<span class="date"><i class="glyphicon glyphicon-calendar"></i>
+						 2016-03-02 10:01:27
+						</span>
+						<span class="tags"><i class="glyphicon glyphicon-tags"></i>
+						 <a href="tags/Maven.html">Maven</a> <a href="tags/Java.html">Java</a> <a href="tags/Eclipse.html">Eclipse</a>
+						</span>
+					</div>
+					<div class="post_body">
+					<h2>前言</h2>
+
+<p>Maven默认把本地依赖库放在~/.m2/repository/文件夹（～指用户目录）。而用户目录不特意设置都会在C盘。Maven的所有构件都会被存储到依赖库中，很快，你的C盘莫名其妙就被填满了。所以，我们不得不考虑修改下Maven本地依赖库的存放位置。</p>
+
+<h2>修改过程</h2>
+
+<h3>修改%MAVEN_HOME%/conf/settings.xml</h3>
+
+<p>MAVEN_HOME表示MAVEN安装目录。</p>
+
+<pre><code>&lt;!-- localRepository
+   | The path to the local repository maven will use to store artifacts.
+   |
+   | Default: ${user.home}/.m2/repository--&gt;
+&lt;localRepository&gt;D:/work/repository&lt;/localRepository&gt;
+</code></pre>
+
+<p>将<localRepository>标签内容改为你想使用的目录。</p>
+
+<h3>在Eclipse中修改settings.xml位置。</h3>
+
+<p>打开Eclipse，Window菜单->Preference->Maven->User Settings，右侧User Settings改为刚刚的%MAVEN_HOME%/conf/settings.xml，然后点击Update，下方Local Repository便应该已经变成你刚刚配置的Repo目录了。</p>
+
+<p><img src="http://xuchen.wang/img/mavenfolder.png" alt="img" /></p>
+
+					</div>
+				</div>
+			</div>
+			<div class="other_posts">
+				<a href=6.html class="pre">上一篇文章：<br> ExtJS 开发环境配置（Spket）</a>
+				<a href=8.html class="next">下一篇文章：<br> Navicat连接Oracle数据库时提示不支持字符集ZHS16GBK的解决办法</a>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<!-- 多说评论框 start -->
+			<div class="ds-thread" data-title= 修改Maven本地依赖库的默认存放位置 ></div>
+		<!-- 多说评论框 end -->
+		<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+		<script type="text/javascript">
+		var duoshuoQuery = {short_name:"yachen"};
+			(function() {
+				var ds = document.createElement('script');
+				ds.type = 'text/javascript';ds.async = true;
+				ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+				ds.charset = 'UTF-8';
+				(document.getElementsByTagName('head')[0] 
+				 || document.getElementsByTagName('body')[0]).appendChild(ds);
+			})();
+			</script>
+		<!-- 多说公共JS代码 end -->
+	</div>
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/contents.js"></script>
+</body>
+</html>

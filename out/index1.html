@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/style.css">
+        <title>我的博客</title>
+	</head>
+	
+<body>
+	
+    <div id="header" class="header">
+        <div class="header_wrapper">
+          <h1 class="title"><a href="index.html">我的博客</a></h1>
+          <ul class="navfz">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="archive.html">归档</a></li>
+            <li><a href="tags/index.html">标签</a></li>
+            <!-- <li><a href="category">分类</a></li> -->
+            <li><a href="links.html">友链</a></li>
+            <li><a href="about.html">关于</a></li>
+          </ul>
+        </div>
+    </div>
+	
+	<div id="main">		<div class="detail">
+            <div class="post">
+                <div class="content">
+                    <h1 class="title"><a href='8.html'> Navicat连接Oracle数据库时提示不支持字符集ZHS16GBK的解决办法</a></h1>
+					<div class="info">
+						<span class="date"><i class="glyphicon glyphicon-calendar"></i>
+							 2016-03-02 11:37:18
+						</span>
+						<span class="tags"><i class="glyphicon glyphicon-tags"></i>
+							 <a href="tags/Navicat.html">Navicat</a> <a href="tags/Oracle.html">Oracle</a> <a href="tags/ZHS16GBK.html">ZHS16GBK</a> <a href="tags/数据库.html">数据库</a>
+						</span>
+					</div>
+					<div class="post_body">
+						 一直没有接触对于我这种个人用户来说很“臃肿的”Oracle，今天使用Navicat连接公司的Oracle数据库时，Navicat提示“unsupported server character set zhs16gbk”，我搜索了一些资料，将解决方法记录如下。
+					</div>
+				</div>
+			</div>
+		</div>		<div class="detail">
+            <div class="post">
+                <div class="content">
+                    <h1 class="title"><a href='7.html'> 修改Maven本地依赖库的默认存放位置</a></h1>
+					<div class="info">
+						<span class="date"><i class="glyphicon glyphicon-calendar"></i>
+							 2016-03-02 10:01:27
+						</span>
+						<span class="tags"><i class="glyphicon glyphicon-tags"></i>
+							 <a href="tags/Maven.html">Maven</a> <a href="tags/Java.html">Java</a> <a href="tags/Eclipse.html">Eclipse</a>
+						</span>
+					</div>
+					<div class="post_body">
+						 Maven默认把本地依赖库放在~/.m2/repository/文件夹（～指用户目录）。而用户目录不特意设置都会在C盘。Maven的所有构件都会被存储到依赖库中，很快，你的C盘莫名其妙就被填满了。所以，我们不得不考虑修改下Maven本地依赖库的存放位置。
+					</div>
+				</div>
+			</div>
+		</div>		<div class="detail">
+            <div class="post">
+                <div class="content">
+                    <h1 class="title"><a href='6.html'> ExtJS 开发环境配置（Spket）</a></h1>
+					<div class="info">
+						<span class="date"><i class="glyphicon glyphicon-calendar"></i>
+							 2016-02-29 15:42:47
+						</span>
+						<span class="tags"><i class="glyphicon glyphicon-tags"></i>
+							 <a href="tags/ExtJS.html">ExtJS</a> <a href="tags/Skept.html">Skept</a> <a href="tags/Eclipse.html">Eclipse</a> <a href="tags/JavaScript.html">JavaScript</a>
+						</span>
+					</div>
+					<div class="post_body">
+						 最近系统的学习了一下ExtJS框架，一开始是一直使用Notepad++进行开发的，直到发现了Spket这个Eclipse插件可以提供很多Notepad++不具备的功能，配置起来也很简单，现将过程记录如下。
+					</div>
+				</div>
+			</div>
+		</div>		<div class="detail">
+            <div class="post">
+                <div class="content">
+                    <h1 class="title"><a href='5.html'> TIS-100用户手册中文版</a></h1>
+					<div class="info">
+						<span class="date"><i class="glyphicon glyphicon-calendar"></i>
+							 2015-12-29 23:58:31
+						</span>
+						<span class="tags"><i class="glyphicon glyphicon-tags"></i>
+							
+						</span>
+					</div>
+					<div class="post_body">
+						 最近在Steam上购买了TIS-100编程游戏，该游戏是一款使用汇编语言解决问题的高智商游戏。并附有一份14页的说明文档。我对该说明文档进行了完整翻译。
+					</div>
+				</div>
+			</div>
+		</div>		<div class="detail">
+            <div class="post">
+                <div class="content">
+                    <h1 class="title"><a href='4.html'> 让PHP输出Json时正常显示中文</a></h1>
+					<div class="info">
+						<span class="date"><i class="glyphicon glyphicon-calendar"></i>
+							 2015-12-21 20:24:42
+						</span>
+						<span class="tags"><i class="glyphicon glyphicon-tags"></i>
+							 <a href="tags/PHP.html">PHP</a> <a href="tags/Json.html">Json</a>
+						</span>
+					</div>
+					<div class="post_body">
+						 在使用PHP读取数据库生成Json文件的时候，我遇到了这样一个问题：中文部分全部被PHP的json_encode函数替换为了\u+utf8编码的形式，在一般情况下，如果我们不会特意去使用其他不支持直接解码\u+utf8的软件读取Json，并不需要对其进行操作。这里我参考总结了下PHP为什么要这么做和一些让你在Json中看到能显示ASCII可显示字符之外的字符方法，记录了下来。
+					</div>
+				</div>
+			</div>
+		</div>	</div>
+	
+	<nav>
+		<ul class="pager">
+			<li class="previous"><a href="index.html">Pre</a></li>
+			<li class="next"><a href="index2.html">Next</a></li>
+		</ul>
+	</nav>
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/contents.js"></script>
+</body>
+</html>

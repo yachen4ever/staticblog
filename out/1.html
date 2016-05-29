@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/agate.css">
+		<script src="js/highlight.pack.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
+        <title> 在Github上搭建Hexo静态博客记录</title>
+	</head>
+	
+<body>
+	
+    <div id="header" class="header">
+        <div class="header_wrapper">
+          <h1 class="title"><a href="index.html">我的博客</a></h1>
+          <ul class="navfz">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="archive.html">归档</a></li>
+            <li><a href="tags/index.html">标签</a></li>
+            <!-- <li><a href="category">分类</a></li> -->
+            <li><a href="links.html">友链</a></li>
+            <li><a href="about.html">关于</a></li>
+          </ul>
+        </div>
+    </div>
+	
+	<div id="main">
+		<div class="detail">
+            <div class="post">
+                <div class="content">
+                    <h1 class="title"> 在Github上搭建Hexo静态博客记录</h1>
+					<div class="info">
+						<span class="date"><i class="glyphicon glyphicon-calendar"></i>
+						 2015-12-17 02:40:25
+						</span>
+						<span class="tags"><i class="glyphicon glyphicon-tags"></i>
+						 <a href="tags/静态博客.html">静态博客</a> <a href="tags/Hexo.html">Hexo</a> <a href="tags/Github.html">Github</a>
+						</span>
+					</div>
+					<div class="post_body">
+					<p>一直以来只有一个简陋的cnblogs上的博客，还基本都是高中时的东西。大学四年更新了3次，实在是惭愧，今晚和我雪说到这个，借此机会用Hexo在Github上搭个静态博客（然而我雪自己写了个静态化程序，膜之），准备好好记录下自己到底学了些什么。以下就是过程的记录和遇到的一些问题的解决办法了。</p>
+
+<h1>一、准备一些工具</h1>
+
+<p>你需要以下软件：</p>
+
+<blockquote>
+  <ul>
+  <li>
+  <ol>
+  <li>Git (http://git-scm.com/downloads)</li>
+  </ol></li>
+  <li>
+  <ol>
+  <li>node.js (http://nodejs.org/download)</li>
+  </ol></li>
+  </ul>
+</blockquote>
+
+<p>下载好后两者都可一路回车法进行安装。Git需要配置SSH-Key，此过程使用过GitHub的都明白，此处不再赘述。完成后打开Git Bash，执行如下命令:</p>
+
+<pre><code>$ npm install -g hexo
+</code></pre>
+
+<p>这样你就安装好了hexo主程序。</p>
+
+<h1>二、使用你的Github账户新建一个Repository</h1>
+
+<p>请注意，新建Repo时请注意Repository name请使用username.github.io。username换成你的用户名。只有这种方式建立的Repo才可以使用Github Pages直接访问。</p>
+
+<h1>三、创建博客目录</h1>
+
+<p>在git bash中选择好博客存放目录，执行</p>
+
+<pre><code>$ hexo init
+</code></pre>
+
+<p>hexo会自动在此文件夹生成建立博客需要的文件，接着执行</p>
+
+<pre><code>$ npm install
+$ npm install hexo-server
+$ npm install hexo-deployer-git
+</code></pre>
+
+<p>以上装好hexo-server（在hexo3.0版本中hexo-server从hexo中分离了出来）还有hexo用于git的部署工具。</p>
+
+<p>此时即可生成静态网页后输入hexo server测试服务器是否正常运行。git bash应该会显示：</p>
+
+<pre><code>$ hexo g
+$ hexo server
+[info] Hexo is running at http://0.0.0.0:4000/. Press Ctrl+C to stop.
+</code></pre>
+
+<p>这里的0.0.0.0是默认配置ip，可以在./_config.yml中修改，不过默认的也没有问题，打开http://localhost:4000应该会看到一篇默认的文章。</p>
+
+<h1>四、配置_config.yml</h1>
+
+<p>hexo所有配置都在_config.yml文件中，在</p>
+
+<pre><code># Site
+title: YaCHEN Factory
+subtitle: 
+description: 
+author: YaCHEN
+language:
+timezone:
+# URL
+## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+url: http://www.xuchen.wang
+root: /
+permalink: :year/:month/:day/:title/
+permalink_defaults:
+</code></pre>
+
+<p>中，请将对应信息改为自己的。</p>
+
+<p>而在尾部</p>
+
+<pre><code># Deployment
+## Docs: http://hexo.io/docs/deployment.html
+deploy: 
+  type: git
+  repo: git@github.com:yachen4ever/yachen4ever.github.io.git
+</code></pre>
+
+<p>增加一行repo: 你在github上对应repository的SSH地址，请注意必须使用SSH地址，HTTPS会导致错误。</p>
+
+<p>还有一个必须要注意的地方，<strong>冒号后面一定要有一个空格</strong>，否则会报错。</p>
+
+<p>此时即可查看http://yourname.github.io/是否提交成功。</p>
+
+<h1>五、学会使用</h1>
+
+<p>每次部署博客，都可按以下三步来进行。</p>
+
+<pre><code>$ hexo clean
+$ hexo generate
+$ hexo deploy
+</code></pre>
+
+<p>命令涵义就是字面意思，同时，后两条命令分别也可以简写为</p>
+
+<pre><code>$ hexo g
+$ hexo d
+</code></pre>
+
+<p>而创建新博客使用</p>
+
+<p>具体请参见:https://hexo.io/docs/writing.html
+推荐使用 https://www.zybuluo.com/mdeditor 如果你没有接触过Markdown</p>
+
+<h1>六、一些问题</h1>
+
+<h2>我想绑定独立域名</h2>
+
+<p>请参考 https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages/
+其中加入完后请将CNAME文件在./source中放置一份，这样下次hexo deploy时就不会使CNAME文件消失了。</p>
+
+<h2>部署时提示 ｀event type error ***｀</h2>
+
+<p>出现该问题是因为安装了git bash没有配置到环境变量path中，添加进去试试。</p>
+
+<h2>我想换一个主题</h2>
+
+<p>这里是官方主题预览：https://hexo.io/themes/
+选好想要的主题后在git bash里输入</p>
+
+<pre><code>$ git clone 该Theme SSH地址或HTTPS地址 themes/主题名
+</code></pre>
+
+<p>并在./_config.yml中修改</p>
+
+<pre><code>theme: 新主题名
+</code></pre>
+
+<p>重新部署即可。</p>
+
+					</div>
+				</div>
+			</div>
+			<div class="other_posts">
+				<a href=1.html class="pre">上一篇文章：<br>已经是第一篇文章!</a>
+				<a href=2.html class="next">下一篇文章：<br> Linux环境搭建Left 4 Dead 2/求生之路2专用服务器</a>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<!-- 多说评论框 start -->
+			<div class="ds-thread" data-title= 在Github上搭建Hexo静态博客记录 ></div>
+		<!-- 多说评论框 end -->
+		<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+		<script type="text/javascript">
+		var duoshuoQuery = {short_name:"yachen"};
+			(function() {
+				var ds = document.createElement('script');
+				ds.type = 'text/javascript';ds.async = true;
+				ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+				ds.charset = 'UTF-8';
+				(document.getElementsByTagName('head')[0] 
+				 || document.getElementsByTagName('body')[0]).appendChild(ds);
+			})();
+			</script>
+		<!-- 多说公共JS代码 end -->
+	</div>
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/contents.js"></script>
+</body>
+</html>

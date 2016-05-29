@@ -16,6 +16,8 @@ You can change page modules on your own. Try change 'pagemodule.php','indexmodul
 YaCHEN (http://xuchen.wang). A postgraduate CS student.
 
 ## Updates
+Ver 1.2.4
+Minor Changes
 
 Ver 1.2.3
 Add LICENSE

@@ -33,7 +33,7 @@
 
 	//复制css文件到生成目录
 	if (!is_dir('out')) mkdir ('out');
-	xCopy('bootstrap','out',1);
+	xCopy('modulecssjs','out',1);
 	
 	
 	//创建内容数组和标签数组

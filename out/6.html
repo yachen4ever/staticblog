@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/agate.css">
+		<script src="js/highlight.pack.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
+        <title> ExtJS 开发环境配置（Spket）</title>
+	</head>
+	
+<body>
+	
+    <div id="header" class="header">
+        <div class="header_wrapper">
+          <h1 class="title"><a href="index.html">我的博客</a></h1>
+          <ul class="navfz">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="archive.html">归档</a></li>
+            <li><a href="tags/index.html">标签</a></li>
+            <!-- <li><a href="category">分类</a></li> -->
+            <li><a href="links.html">友链</a></li>
+            <li><a href="about.html">关于</a></li>
+          </ul>
+        </div>
+    </div>
+	
+	<div id="main">
+		<div class="detail">
+            <div class="post">
+                <div class="content">
+                    <h1 class="title"> ExtJS 开发环境配置（Spket）</h1>
+					<div class="info">
+						<span class="date"><i class="glyphicon glyphicon-calendar"></i>
+						 2016-02-29 15:42:47
+						</span>
+						<span class="tags"><i class="glyphicon glyphicon-tags"></i>
+						 <a href="tags/ExtJS.html">ExtJS</a> <a href="tags/Skept.html">Skept</a> <a href="tags/Eclipse.html">Eclipse</a> <a href="tags/JavaScript.html">JavaScript</a>
+						</span>
+					</div>
+					<div class="post_body">
+					<h3>前言</h3>
+
+<p>最近在实习，借机系统的学习了一下ExtJS框架，一开始是一直使用Notepad++进行开发的，直到发现了Skept这个Eclipse插件可以提供很多Notepad++不具备的功能，配置起来也很简单，现将过程记录如下。</p>
+
+<h3>版本信息</h3>
+
+<blockquote>
+  <ul>
+  <li>ExtJS 3.4 (http://www.xuchen.wang/down/ext-3.4.0.zip)</li>
+  <li>Eclipse Kepler Java EE IDE for Web Developers（Eclipse版本差异无影响） (https://www.eclipse.org/downloads/packages/release/Kepler/SR2)</li>
+  <li>Spket 1.6.23 (http://www.xuchen.wang/down/spket-1.6.23.jar)</li>
+  </ul>
+</blockquote>
+
+<p><strong>注意：</strong>
+1. Eclipse版本差异无影响。
+2. Spket需要Java 1.5及以上版本运行支持。
+3. ExtJS大版本不同差异比较多，Ext2.x系列，3.x系列，4.x系列迁移起来耗时较多，建议认准一个版本然后稳定保持。</p>
+
+<h3>安装过程</h3>
+
+<p>1.将Spket下载好后直接使用java运行（如果你jdk版本低于1.6或没有配置jar默认打开方式为java.exe再或不想配置，可以使用cmd输入java -jar spket-1.6.23.jar）。在安装时Spket安装程序会让你选择Spket是以现有Eclipse的插件形式安装还是以一个独立IDE形式安装。如果选择插件形式，下一步你需要输入Eclipse根目录，而独立IDE也就是一个极其精简版的Eclipse。这里我们使用以插件形式安装。</p>
+
+<p>2.安装完毕后打开Eclipse，打开Window菜单Preferences选项。在左侧选择Spket（如果没有说明你安装不成功）中的JavaScript Profiles，如图所示。
+<img src="http://xuchen.wang/img/extenv1.png" alt="extenv1" /></p>
+
+<p>3.点击右侧的New，输入ExtJS（这个名字无所谓）。再点击Add Library，在下拉菜单中选择ExtJS。如图所示。</p>
+
+<p><img src="http://xuchen.wang/img/extenv2.png" alt="extenv2" /></p>
+
+<p>4.点击右侧的Add File,选择ExtJS存放目录下的ext.jsb2,ext-all.js,ext-all-debug.js三个文件。如图所示。</p>
+
+<p><img src="http://xuchen.wang/img/extenv3.png" alt="extenv3" /></p>
+
+<p>5.选中最开始命名的ExtJS，点击右侧Default。</p>
+
+<p>重启Eclipse，即可使用。</p>
+
+<p><strong>注意：</strong>
+如果没有自动补全和提示效果，很可能是因为你没有将Spket设置为默认JS编辑器。
+解决办法：打开Eclipse的Window菜单Preferences选项，左侧选择Gerenal->Editor->File Associations，右侧上面File Types选择*.js，下侧将Spket JavaScript Editor设为Default，然后重新打开js文件即可。如图所示。
+<img src="http://xuchen.wang/img/extenv5.png" alt="extenv5" /></p>
+
+<h3>效果演示</h3>
+
+<p>这样Spket就安装好了，你会发现你在写ExtJS时会得到这样的效果：
+<img src="http://xuchen.wang/img/extenv4.png" alt="extenv4" /></p>
+
+<h3>一些备注</h3>
+
+<p>学习ExtJs我使用的这本书：
+http://xuchen.wang/down/extbook.part1.rar
+http://xuchen.wang/down/extbook.part2.rar
+书中配套光盘中的实例文件：
+http://xuchen.wang/down/ext-sample.rar</p>
+
+					</div>
+				</div>
+			</div>
+			<div class="other_posts">
+				<a href=5.html class="pre">上一篇文章：<br> TIS-100用户手册中文版</a>
+				<a href=7.html class="next">下一篇文章：<br> 修改Maven本地依赖库的默认存放位置</a>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<!-- 多说评论框 start -->
+			<div class="ds-thread" data-title= ExtJS 开发环境配置（Spket） ></div>
+		<!-- 多说评论框 end -->
+		<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+		<script type="text/javascript">
+		var duoshuoQuery = {short_name:"yachen"};
+			(function() {
+				var ds = document.createElement('script');
+				ds.type = 'text/javascript';ds.async = true;
+				ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+				ds.charset = 'UTF-8';
+				(document.getElementsByTagName('head')[0] 
+				 || document.getElementsByTagName('body')[0]).appendChild(ds);
+			})();
+			</script>
+		<!-- 多说公共JS代码 end -->
+	</div>
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/contents.js"></script>
+</body>
+</html>

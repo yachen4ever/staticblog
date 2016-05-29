@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/agate.css">
+		<script src="js/highlight.pack.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
+        <title> GNU Mannal Screen命令中文摘要</title>
+	</head>
+	
+<body>
+	
+    <div id="header" class="header">
+        <div class="header_wrapper">
+          <h1 class="title"><a href="index.html">我的博客</a></h1>
+          <ul class="navfz">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="archive.html">归档</a></li>
+            <li><a href="tags/index.html">标签</a></li>
+            <!-- <li><a href="category">分类</a></li> -->
+            <li><a href="links.html">友链</a></li>
+            <li><a href="about.html">关于</a></li>
+          </ul>
+        </div>
+    </div>
+	
+	<div id="main">
+		<div class="detail">
+            <div class="post">
+                <div class="content">
+                    <h1 class="title"> GNU Mannal Screen命令中文摘要</h1>
+					<div class="info">
+						<span class="date"><i class="glyphicon glyphicon-calendar"></i>
+						 2015-12-19 12:48:50
+						</span>
+						<span class="tags"><i class="glyphicon glyphicon-tags"></i>
+						 <a href="tags/Linux.html">Linux</a> <a href="tags/Screen.html">Screen</a>
+						</span>
+					</div>
+					<div class="post_body">
+					<h2>总览</h2>
+
+<blockquote>
+  <ul>
+  <li>后台运行</li>
+  <li>会话恢复</li>
+  <li>多窗口运行</li>
+  <li>会话共享</li>
+  </ul>
+</blockquote>
+
+<p>当你SSH远程使用Linux服务器时，可能经常运行一些需要很长时间才能完成的任务，此时我们就不能关闭这个SSH链接，否则这个任务就会被kill了，非常不方便。</p>
+
+<p>Screen的出现解决了这个问题。Screen是一款由GNU计划开发的用于命令行终端切换的自由软件。用户可以通过该软件同时连接多个本地或远程的命令行会话，并在其间自由切换。</p>
+
+<p>当然，Screen的功能不仅局限于此，Screen可以看作是窗口管理器的命令行界面版本。它提供了统一的管理多个会话的界面和相应的功能。</p>
+
+<p>在Screen环境下，所有的会话都独立的运行，并拥有各自的编号、输入、输出和窗口缓存。用户可以通过快捷键在不同的窗口下切换，并可以自由的重定向各个窗口的输入和输出。Screen实现了基本的文本操作，如复制粘贴等；还提供了类似滚动条的功能，可以查看窗口状况的历史记录。窗口还可以被分区和命名，还可以监视后台窗口的活动。</p>
+
+<p>并且，Screen还可以实现会话共享，多个用户从不同终端多次登录一个会话，并共享会话的所有特性（比如可以看到完全相同的输出）。它同时提供了窗口访问权限的机制，还可以对窗口进行密码保护。</p>
+
+<h2>开始使用Screen</h2>
+
+<h3>安装GNU Screen</h3>
+
+<p>一般来说，常见Linux发行版都会自带GNU Screen，但神奇的是我购买的VirMach服务器装的Ubuntu 14.04 Minimal自带了Screen，反倒是Aliyun装的Ubuntu 14.04.3 LTS没有，不过问题不大，我们来自己安装一下。</p>
+
+<pre><code># apt-get install screen
+</code></pre>
+
+<h3>创建一个Screen</h3>
+
+<h4>语法</h4>
+
+<pre><code># screen [-S &lt;ScreenName&gt;][-s &lt;program&gt;]
+</code></pre>
+
+<h4>使用-S参数</h4>
+
+<p>-S参数提供了一个screen名称标识，可以使用</p>
+
+<pre><code># screen -S screenname
+</code></pre>
+
+<p>来新建一个以screenname标识的screen，此时就好像清屏了一样看不出区别，但其实你已经在一个screen中工作了，输入exit，可以看到</p>
+
+<pre><code>[screen is terminating]
+# 
+</code></pre>
+
+<h4>使用-s参数</h4>
+
+<p>-s参数指定了建立新Screen时，所要执行的程序。默认是bash。-s可以省略，比如我们如果想在一个新Screen中运行vi，可以直接输入</p>
+
+<pre><code># screen vi
+</code></pre>
+
+<h3>查询并恢复Screen</h3>
+
+<p>查询：</p>
+
+<pre><code># screen -ls
+</code></pre>
+
+<p>恢复</p>
+
+<pre><code># screen -r &lt;数字标号或screen名称&gt;
+</code></pre>
+
+<h3>Screen下的操作</h3>
+
+<p>在一个Screen下，所有命令都以Ctrl+A开始，按下Ctrl+A后，你可以使用以下常用命令。</p>
+
+<blockquote>
+  <ul>
+  <li>Ctrl+A c --> 创建一个新的运行shell的窗口并切换到该窗口</li>
+  <li>Ctrl+A n --> (Next)切换到下一个screen</li>
+  <li>Ctrl+A p --> (Previous)切换到上一个screen</li>
+  <li>Ctrl+A 0..9 --> 切换到第0~9个screen</li>
+  <li>Ctrl+A [Space] --> 循环依次切换screen</li>
+  <li>Ctrl+A Ctrl+A --> 在两个最近使用的screen来回切换</li>
+  <li>Ctrl+A d --> (Detach)暂时离开当前screen，返回主bash，此时该Screen中的进程继续后台运行不受影响</li>
+  <li>Ctrl+A w --> 显示当前所有Screen列表</li>
+  <li>Ctrl+A k --> (kill)杀死当前screen并强行结束其中所有进程</li>
+  <li>Ctrl+A x --> 锁住当前Screen，恢复需要密码</li>
+  <li>Ctrl+A ? --> 帮助</li>
+  <li>Ctrl+A [ --> 进入Copy模式</li>
+  <li>Ctrl+A ] --> Paste</li>
+  </ul>
+</blockquote>
+
+<h2>使用示例</h2>
+
+<p>说这么多不如一次实践，我们来尝试一下使用Screen。</p>
+
+<h3>暂时断开</h3>
+
+<p>举个例子，我们现在先建立一个screen用来使用vi编辑文档</p>
+
+<pre><code># screen -S yacvi vi
+</code></pre>
+
+<p><img src="http://xuchen.wang/img/screen1.png" alt="screen1" />
+突然写到一半我想重启电脑或是怎么样，必须断开连接，这时我只需要Ctrl+A d断开连接再关闭SSH即可。
+<img src="http://xuchen.wang/img/screen2.png" alt="screen2" />
+待回来后，哪怕你换了一台电脑甚至换了一个人，连接SSH后，只需</p>
+
+<pre><code># screen -ls
+</code></pre>
+
+<p>即可查看服务器中有的Screen。
+<img src="http://xuchen.wang/img/screen3.png" alt="screen3" />
+可以看到，我们建立的名为yacvi的screen还在，其数字标号是4304，我们输入</p>
+
+<pre><code># screen -r 4304
+</code></pre>
+
+<p>或
+    # screen -r yacvi</p>
+
+<p>即可继续进行编辑。</p>
+
+<h3>同时进行其他工作</h3>
+
+<p>比如，我们在编辑vi时突然想用w3m网上冲浪一把（别问我上网为什么用w3m）
+我们在刚才的vi界面按下Ctrl+A c，这样就建立一个新screen，在其中输入w3m 网址就可以上网了。按下Ctrl+A w，可以看到已经有了2个Screen
+<img src="http://xuchen.wang/img/screen4.png" alt="screen4" />
+<strong>其中1后面的*就标识了这是你当前screen。</strong>
+根据我们上面提到的快捷键，连按两下Ctrl+A Ctrl+A，可以非常方便的在两个Screen来回切换。</p>
+
+<h3>杀死Screen</h3>
+
+<p>正常情况下，当你退出一个Screen中最后一个程序（通常是对bash进行exit），这个Screen就随之关闭了。当然我们使用Ctrl+A k可以更快捷的kill这个Screen。我们对运行w3m的Screen直接Ctrl+A k。这个Screen便不复存在。</p>
+
+<h2>一些补充</h2>
+
+<h3>复制粘贴</h3>
+
+<p>在一个Screen中复制粘贴到另一个Screen是非常方便的。当你在一个Screen中按下Ctrl+A [，就进入了Copy Mode，在这里所有操作和Vi基本相同。
+具体请参阅：http://www.gnu.org/software/screen/manual/screen.html#Copy</p>
+
+<h3>会话共享</h3>
+
+<p>假设你和朋友以相同用户登录一台机器，在你创建一个screen会话后，你朋友输入</p>
+
+<pre><code># screen -x
+</code></pre>
+
+<p>这样你在这个screen上的所有操作都会同步给他，他的所有操作也会同步给你，可以用来演示操作。</p>
+
+<h3>清扫dead screen</h3>
+
+<p>有时，一个screen进程可能被人为kill掉了，这样在screen -ls就会显示(Dead)。 如果出现这样的Screen，应使用screen -wipe清除。</p>
+
+<h2>感谢</h2>
+
+<p>本文参考了一下文档：
+http://www.gnu.org/software/screen/manual/screen.html
+http://www.cnblogs.com/mchina/archive/2013/01/30/2880680.html
+在此表示感谢！</p>
+
+					</div>
+				</div>
+			</div>
+			<div class="other_posts">
+				<a href=2.html class="pre">上一篇文章：<br> Linux环境搭建Left 4 Dead 2/求生之路2专用服务器</a>
+				<a href=4.html class="next">下一篇文章：<br> 让PHP输出Json时正常显示中文</a>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<!-- 多说评论框 start -->
+			<div class="ds-thread" data-title= GNU Mannal Screen命令中文摘要 ></div>
+		<!-- 多说评论框 end -->
+		<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+		<script type="text/javascript">
+		var duoshuoQuery = {short_name:"yachen"};
+			(function() {
+				var ds = document.createElement('script');
+				ds.type = 'text/javascript';ds.async = true;
+				ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+				ds.charset = 'UTF-8';
+				(document.getElementsByTagName('head')[0] 
+				 || document.getElementsByTagName('body')[0]).appendChild(ds);
+			})();
+			</script>
+		<!-- 多说公共JS代码 end -->
+	</div>
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/contents.js"></script>
+</body>
+</html>

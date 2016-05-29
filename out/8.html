@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/agate.css">
+		<script src="js/highlight.pack.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
+        <title> Navicat连接Oracle数据库时提示不支持字符集ZHS16GBK的解决办法</title>
+	</head>
+	
+<body>
+	
+    <div id="header" class="header">
+        <div class="header_wrapper">
+          <h1 class="title"><a href="index.html">我的博客</a></h1>
+          <ul class="navfz">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="archive.html">归档</a></li>
+            <li><a href="tags/index.html">标签</a></li>
+            <!-- <li><a href="category">分类</a></li> -->
+            <li><a href="links.html">友链</a></li>
+            <li><a href="about.html">关于</a></li>
+          </ul>
+        </div>
+    </div>
+	
+	<div id="main">
+		<div class="detail">
+            <div class="post">
+                <div class="content">
+                    <h1 class="title"> Navicat连接Oracle数据库时提示不支持字符集ZHS16GBK的解决办法</h1>
+					<div class="info">
+						<span class="date"><i class="glyphicon glyphicon-calendar"></i>
+						 2016-03-02 11:37:18
+						</span>
+						<span class="tags"><i class="glyphicon glyphicon-tags"></i>
+						 <a href="tags/Navicat.html">Navicat</a> <a href="tags/Oracle.html">Oracle</a> <a href="tags/ZHS16GBK.html">ZHS16GBK</a> <a href="tags/数据库.html">数据库</a>
+						</span>
+					</div>
+					<div class="post_body">
+					<h2>前言</h2>
+
+<p>一直没有接触对于我这种个人用户来说很“臃肿的”Oracle。而我平时管理数据库一直使用备受我雪推荐的Navicat。今天使用Navicat连接公司的Oracle数据库时，Navicat提示“unsupported server character set zhs16gbk”，我搜索了一些资料，将解决方法记录如下。</p>
+
+<h2>问题描述</h2>
+
+<h3>软件版本</h3>
+
+<blockquote>
+  <ul>
+  <li>Navicat Premium 11.0</li>
+  <li>服务器Oracle 10g</li>
+  </ul>
+</blockquote>
+
+<h3>错误截图</h3>
+
+<p>当尝试使用Navicat连接数据库时，提示：
+<img src="http://xuchen.wang/img/navicatoracle1.png" alt="img" /></p>
+
+<h3>错误原因</h3>
+
+<p>ZHS16GBK是Oracle一种特有的中文字符集命名方式。Oracle提供了Oracle Call Interface（Oracle调用接口），而Navicat正是使用OCI去连接Oracle数据库。在Navicat菜单中选择“工具->选项->其他->OCI”，在右侧可以看到Navicat使用的OCI Library地址，如图所示。
+<img src="http://xuchen.wang/img/navicatoracle2.png" alt="img2" />
+我安装的Navicat此配置为“..\Navicat Premium\instantclient<em>10</em>2\oci.dll”。</p>
+
+<p>可以看到，此处OCI版本为10.2，而根据Oracle文档，OCI11以上版本才提供了zhs16gbk字符集支持。</p>
+
+<h3>解决办法</h3>
+
+<p>我们只需要下载最新版的Instant Client然后将Navicat的OCI路径修改一下就可以运行了。</p>
+
+<p>Instant Client：http://www.oracle.com/technetwork/topics/winsoft-085727.html</p>
+
+<p>下载后解压至Navicat Premium目录，路径设置为..\Navicat Premium\instantclient_12\OCI.dll。</p>
+
+<p>至此，即可正常使用Navicat连接管理zhs16gbk编码的Oracle数据库。</p>
+
+					</div>
+				</div>
+			</div>
+			<div class="other_posts">
+				<a href=7.html class="pre">上一篇文章：<br> 修改Maven本地依赖库的默认存放位置</a>
+				<a href=8.html class="next">下一篇文章：<br>已经是最后一篇文章!</a>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<!-- 多说评论框 start -->
+			<div class="ds-thread" data-title= Navicat连接Oracle数据库时提示不支持字符集ZHS16GBK的解决办法 ></div>
+		<!-- 多说评论框 end -->
+		<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+		<script type="text/javascript">
+		var duoshuoQuery = {short_name:"yachen"};
+			(function() {
+				var ds = document.createElement('script');
+				ds.type = 'text/javascript';ds.async = true;
+				ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+				ds.charset = 'UTF-8';
+				(document.getElementsByTagName('head')[0] 
+				 || document.getElementsByTagName('body')[0]).appendChild(ds);
+			})();
+			</script>
+		<!-- 多说公共JS代码 end -->
+	</div>
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/contents.js"></script>
+</body>
+</html>
