@@ -3,9 +3,9 @@
 
 ## How to Use
 
-Simply Clone the whole project into your server directory. Make sure you have PHP 5(or higher) running on your server.
+Simply Clone the whole project into your server directory. Make sure you have PHP 5.3(or higher) running on your server.
 
-Use scanfolder.php to run the project after putting your Markdown blogs files in 'post' directory. It'll transfer your Markdown blog files into HTML in 'out' directory. You can copy your HTML files to everywhere you want to. This requires no web servers.
+Use scanfolder.php to run the project after putting your Markdown blogs files in 'post' directory. It'll transfer your Markdown blog files into HTML in 'out' directory. You can copy your HTML files to everywhere you want to. It requires no web servers.
 
 ## Customize
 
